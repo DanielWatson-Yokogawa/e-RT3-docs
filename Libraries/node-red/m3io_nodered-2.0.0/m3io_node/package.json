@@ -1,0 +1,25 @@
+{
+  "_id": "m3io_nodered@1.0.0",
+  "name": "m3io_nodered",
+  "version": "1.0.0",
+  "author": "Yokogawa Technologies Solutions India Pvt. Ltd.",
+  "license": "MIT",
+  "description": "esay access to m3io devices.",
+  "dependencies": {},
+  "keywords": [
+    "node-red"
+  ],
+  "node-red": {
+    "nodes": {
+      "CpuNumber": "nodes/m3io_CpuNumber.js",
+      "SysLED": "nodes/m3io_SysLED.js",
+      "getM3IoName": "nodes/m3io_getM3IoName.js",
+      "readM3InRelayP": "nodes/m3io_readM3InRelayP.js",
+      "readM3InRelay": "nodes/m3io_readM3InRelay.js",
+      "writeM3OutRelayP": "nodes/m3io_writeM3OutRelayP.js",
+      "readM3OutRelay": "nodes/m3io_readM3OutRelay.js",
+      "readM3IoRegister": "nodes/m3io_readM3IoRegister.js",
+      "writeM3IoRegister": "nodes/m3io_writeM3IoRegister.js"
+    }
+  }
+}

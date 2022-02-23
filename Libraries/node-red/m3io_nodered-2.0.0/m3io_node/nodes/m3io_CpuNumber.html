@@ -1,0 +1,37 @@
+<!-- 
+  /**
+ * -------------------------------------------------------------------------
+ * Copyright (c) 2021 Yokogawa Technologies Solutions India Pvt. Ltd.
+ * 
+ * All rights reserved.
+ * 
+ * Licensed under the MIT License. See LICENSE FILE in the project root for
+ * license information.
+ * --------------------------------------------------------------------------
+ */
+ -->
+
+<script type="text/javascript">
+  RED.nodes.registerType("CpuNumber", {
+    category: "m3io",
+    color: "#c7e9c0",
+    defaults: {
+      name: { value: "get CPU Number" },
+      ledname: { value: "RUN" },
+    },
+    inputs: 1,
+    outputs: 1,
+    align: "right",
+    icon: "hash.png",
+    label: function () {
+      return this.name || "CpuNumber";
+    },
+  });
+</script>
+
+<script type="text/x-red" data-template-name="CpuNumber"></script>
+
+<script type="text/x-red" data-help-name="CpuNumber">
+    <p>get own Cpu module number.
+  puts cpu number in <code>msg.payload</code>.</p>
+</script>

@@ -1,0 +1,51 @@
+<!-- 
+  /**
+ * -------------------------------------------------------------------------
+ * Copyright (c) 2021 Yokogawa Technologies Solutions India Pvt. Ltd.
+ * 
+ * All rights reserved.
+ * 
+ * Licensed under the MIT License. See LICENSE FILE in the project root for
+ * license information.
+ * --------------------------------------------------------------------------
+ */
+ -->
+
+<script type="text/javascript">
+  RED.nodes.registerType('SysLED',{
+    category:'m3io',
+    color:'#c7e9c0',
+    defaults:{
+      name:{value:"System LED"},
+      ledname:{value:"RUN"}
+    },
+    inputs:1,
+    outputs:0,
+    align: "right",
+    icon:"light.png",
+    label:function(){
+      return this.name||"SysLED";
+    }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="SysLED">
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name">
+  </div>
+  <div class="form-row">
+    <label for="node-input-ledname"> LED</label>
+    <select id="node-input-ledname">
+      <option value="RUN">RUN</option>
+      <option value="ALM">Alarm</option>
+      <option value="U1">User 1</option>
+      <option value="U2">User 2</option>
+      <option value="U3">User 3</option>
+    </select>
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="SysLED">
+  <p>SysLED controls System LED On/Off by msg.payload, set msg.payload 'true',1 or 'false',0. select LED name at proparty.</p>
+</script>

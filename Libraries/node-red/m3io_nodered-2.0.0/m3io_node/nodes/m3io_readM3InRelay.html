@@ -1,0 +1,81 @@
+<!-- 
+  /**
+ * -------------------------------------------------------------------------
+ * Copyright (c) 2021 Yokogawa Technologies Solutions India Pvt. Ltd.
+ * 
+ * All rights reserved.
+ * 
+ * Licensed under the MIT License. See LICENSE FILE in the project root for
+ * license information.
+ * --------------------------------------------------------------------------
+ */
+ -->
+
+<script type="text/javascript">
+  RED.nodes.registerType('readM3InRelay',{
+    category:'m3io',
+    color:'#c7e9c0',
+    defaults:{
+      name:{value:"Slot Name"},
+      unit:{value:0},
+      slot:{value:1},
+      pos:{value:1},
+      blk:{value:1},
+      thr:{value:false},
+      bin:{value:false}
+    },
+    inputs:1,
+    outputs:1,
+    icon:"trigger.png",
+    label:function(){
+      return this.name||"readM3InRelay";
+    }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="readM3InRelay">
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name">
+  </div>
+  <div class="form-row">
+    <label for="node-input-unit"> Unit (0-7)</label>
+    <input type="text" id="node-input-unit">
+  </div>
+  <div class="form-row">
+    <label for="node-input-slot"> Slot (1-16)</label>
+    <input type="text" id="node-input-slot">
+  </div>
+  <div class="form-row">
+    <label for="node-input-pos"> Position (1,17,33,49)</label>
+    <select id="node-input-pos">
+      <option value="1">1</option>
+      <option value="17">17</option>
+      <option value="33">33</option>
+      <option value="49">49</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="node-input-blk"> Num block (1-4)</label>
+    <input type="text" id="node-input-blk">
+  </div>
+  <div class="form-row">
+      <label style="width:auto" for="node-input-thr">through <code>msg.position</code> to output: </label>
+      <input type="checkbox" checked id="node-input-thr" style="display:inline-block; width:auto; vertical-align:top;">
+  </div>
+  <div class="form-row">
+      <label style="width:auto" for="node-input-bin">output <code>binary</code> strings to msg.payload: </label>
+      <input type="checkbox" unchecked id="node-input-bin" style="display:inline-block; width:auto; vertical-align:top;">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="readM3InRelay">
+  <p>readM3InRelay gets On/Off data of 16 relay positions.
+you can change a position by <code>msg.position</code>.but position is 1,17,33 or 49 .
+put a data in <code>msg.payload</code> by hex strings (ex:0x0123,0x4567,0x89ab,0xcdef).
+or binary output (ex:01010101....) by check output binary.
+put strings "unitno,slotno,posno" in msg.topic.
+this node for like XDxx series M3 modules.
+</p>
+
+</script>
